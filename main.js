@@ -18,7 +18,7 @@ let removeAllChildren = (parent) => {
 
 let UpdateRegion = region => {
     removeAllChildren(tilesContainer)
-    fetch(`https://aottgbotapi.herokuapp.com/api/aottg/serverlist/${region}`)
+    fetch(`https://aottgbotapi.herokuapp.com/api/aottg/serverlist/${region}`, {mode: 'no-cors'})
     .then(response => response.json())
     .then(data => {
         // Do what you want with your data
