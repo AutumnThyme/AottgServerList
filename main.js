@@ -1,8 +1,7 @@
 let tilesContainer = document.getElementById("tiles-container-id");
 
 let addTile =  (parent, child) => {
-    var childElement = document.createElement("div");
-    childElement.appendChild(document.createTextNode(child));
+    
     var lineBreak = document.createElement("br");
     parent.appendChild(child);
     parent.appendChild(lineBreak);
@@ -12,7 +11,7 @@ let removeAllChildren = (parent) => {
     var first = parent.firstElementChild;
     while (first) {
         first.remove();
-        first = e.firstElementChild;
+        first = parent.firstElementChild;
     }
 }
 
@@ -22,20 +21,22 @@ let UpdateRegion = region => {
     .then(response => response.json())
     .then(data => {
         // Do what you want with your data
-        response.forEach(element => {
+        
+        data.forEach(element => {
+            var childElement = document.createElement("div");
             // element structure looks like
-            keys = element.keys();
-            tileText = ""
+            keys = ["name", "difficulty", "map", "playerCount", "maxPlayers"]
             keys.forEach(key => {
-                tileText += `${key}: ${element[key]}\n`
+                childElement.appendChild(document.createTextNode(`${key}: ${element[key]}`));
             });
-            addTile(tilesContainer);
+            addTile(tilesContainer, childElement);
         });
     })
     .catch(err => {
         console.error('An error ocurred', err);
     });
 }
+
 
 
 
