@@ -1,9 +1,26 @@
-.body {
-    background-color: darkslategray;
+body {
+    background-color: #1C2833;
+}
+
+p {
+    margin: 3px;
+}
+
+.regions {
+    margin: 0px 0px 5% 0px;
+}
+
+.tiles-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tile {
-    background-color: dimgray;
+    background-color: #34495E;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
+    text-align:center;
+    width: 40%;
+    margin: 10px 10px;
+    padding: 1px 0px 1px 0px;
 }

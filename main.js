@@ -26,9 +26,10 @@ let UpdateRegion = region => {
             var childElement = document.createElement("div");
             childElement.classList.add("tile");
             // element structure looks like
-            keys = ["difficulty", "map", "playerCount", "maxPlayers"]
+            keys = ["difficulty", "map"]
+
             var header = document.createElement("h4");
-            header.textContent = `Name: ${element["name"]}`;
+            header.textContent = `Name: ${element["name"]} [${element["playerCount"]}/${element["maxPlayers"]}]`;
             childElement.appendChild(header);
            
             keys.forEach(key => {
