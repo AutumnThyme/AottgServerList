@@ -24,10 +24,17 @@ let UpdateRegion = region => {
         
         data.forEach(element => {
             var childElement = document.createElement("div");
+            childElement.classList.add("tile");
             // element structure looks like
-            keys = ["name", "difficulty", "map", "playerCount", "maxPlayers"]
+            keys = ["difficulty", "map", "playerCount", "maxPlayers"]
+            var header = document.createElement("h4");
+            header.textContent = `Name: ${element["name"]}`;
+            childElement.appendChild(header);
+           
             keys.forEach(key => {
-                childElement.appendChild(document.createTextNode(`${key}: ${element[key]}`));
+                var details = document.createElement("p");
+                details.textContent = `${key}: ${element[key]}`;
+                childElement.appendChild(details)
             });
             addTile(tilesContainer, childElement);
         });
@@ -35,6 +42,10 @@ let UpdateRegion = region => {
     .catch(err => {
         console.error('An error ocurred', err);
     });
+}
+
+window.onload = () => {
+    UpdateRegion("Europe");
 }
 
 

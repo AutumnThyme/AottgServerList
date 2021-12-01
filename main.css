@@ -1,0 +1,9 @@
+.body {
+    background-color: darkslategray;
+}
+
+.tile {
+    background-color: dimgray;
+    color: white;
+    border-radius: 5px;
+}
